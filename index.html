@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+     <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+	 <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>  
+	
+    <link rel="stylesheet" href="style.css" />
+	<script src="geo-min.js" type="text/javascript" charset="utf-8"></script>
+	
+    <title>Project 1</title>
+	
+  
+	
+</head>
+
+<body>
+
+	<div id="headrer">
+		<h3 >  The JQUERY project </h3>
+		<div id="nav">
+			<nav>
+				<li > <a id="atagGame" href=""> Game</a></li>
+				<li > <a id="abouta"  href="">  About</a> </li>
+				<li > <a id="translatea"  href="">Geo-location</a> </li>
+				<li > <a id="search"  href="">Search </a> </li>
+				<li > <a id="clicktobuy" href="" > TC API</a> </li> 
+			</nav>
+		</div>
+	</div>
+
+	<div id="contents"> 
+		<div id="data">
+			<p> Please buy books <p>
+
+			<p> My book about space 
+				<a href=""> https://www.amazon.com/Quench-Meera-Meena-Rajagopalan-ebook/dp/B08LCPZ1Z3/ref=sr_1_1?dchild=1&keywords=meera+meena&qid=1603305289&sr=8-1 </a>
+			
+			<p>Travel to space,a dwarf planet,Zenith . A disaster changes many peoples mind about space travel. 
+				Ella and her mom,Stella, learn a lot about space travel, skycube, inhabit Zenith after many trips to space. 
+				Botsy, the bot guide at space is a travel guide to space. </p>
+			</p>
+		</div>
+	</div>
+	
+	<div class="  column1" >
+		
+		<p>   </p>
+		
+	 </div>
+	 
+	 <div class=" column2" >
+	  
+	    
+	  
+	  <p> form data</p>
+	  
+	 </div>
+	
+	<div class="column3" >
+		<form action-"http://www.project.com/main.html" method = "get" >
+		<fieldset> 
+
+		<legend></legend>
+		<label>
+		<br>
+			Name:
+			<input type="text" name="name" size="50" maxlength= "100">
+		</label>
+		<br/>
+		<br/>	
+		<label>
+			Email:
+			<input type="email" name="email" size="50" maxlength="100">
+		</label>
+		<br/>
+		<br/>
+			Password:
+			<input type="password" name="password" size="50" maxlength="100">
+		<br />
+		</br>
+		<input type="submit" id="submitbtn" value="submit" src="images/submit.jpg">
+		</fieldset>
+		<br />
+		</fieldset>
+	 
+    </div>
+	
+	 <footer>
+	 <p>  </p>
+		
+	 </footer>
+	 
+</div>	
+
+
+
+<script>
+		msg = "geolocation notfound";
+		
+		
+		if(geo_position_js.init()){
+			geo_position_js.getCurrentPosition(success_callback,error_callback,{enableHighAccuracy:true});
+			
+		}
+		else{
+		
+			console.log("notloaded");
+		 }
+		function success_callback(p)
+		{
+			console.log("location coords", p.coords);
+			$('div.column2').text("longitude"+p.coords.longitude+"<br/>"+" longitude"+p.coords.latitude);
+		}
+		function error_callback(p)
+		{
+			console.log("location coords", p.message);
+			$('div.column2').text(p.message);
+		}
+
+		var movie = "The Little Me";
+ 
+    var queryURL = "https://www.omdbapi.com/?t=" + "Hobbit" + "&apikey=trilogy";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+		console.log(response);	
+		
+		var displayData= "Title:  "+response.Title+"\n";
+		displayData+= "Year: "+response.Year +"\n";
+		displayData+=  "Year: "+response.Year +'\n';
+			
+		$('div.column1').text(JSON.stringify(response));
+		$('div.column2').text( displayData);
+		
+		history.pushState('',$this.text, '');
+		
+    });
+
+
+	 
+function fetchTranslation(){
+  $.ajax(settings).done(function (response) {
+    console.log(JSON.stringify(response));
+    var translatedText = response.data.translations[0].translatedText;
+    updatePlaceholders(translatedText);
+  });
+  
+}
+
+
+</script>
+
+</div>
+
+</body>
+
+<footer>
+
+</footer>
+
+
+
+</html>
