@@ -1,5 +1,5 @@
 body{
-  width:90%;
+  width:70%;
   margin:0 auto;
   background-color:#white;  
   text-align:center;
@@ -10,25 +10,30 @@ body{
 
 #nav,#contents, #footer{
   margin:1%;
-  background-color:"#efefef;
+  background-color:"cornflowerblue;
 }
 .column1, .column2, .column3{
   width:31%;
   float:left;
   margin:.5%;
-  background-color: #efefefef;
+  background-color: cornflowerblue;
   height:500px;
+}
+
+
+.cc04{
+  transparent url(icon_skype.png) no-repeat top left;
 }
 
 li{
   display:inline;
   padding:0.5em;
   text-align=center;
-  margin-left:10%;
+  margin-left:3%;
 }
 
 #nav, #footer{
-  background-color: #efefefef;
+  background-color: cornflowerblue;
   padding: 0.5em 0;
   
 }
@@ -36,7 +41,7 @@ li{
 #contents, .article{
   height:11em;
   magin-bottom: 1em;
- background-color: #efefefef;
+ background-color: cornflowerblue;
  
 }
 
@@ -48,7 +53,7 @@ h1 h3 h5{
 
 
 nav{
-  background-color: #efefefef;
+  background-color: cornflowerblue;
   height:30px;
 }
 
@@ -56,14 +61,14 @@ nav{
 #content{
 	height:10em;
 	margin-bottom:1em;
-	background-color:#efefef;
+	background-color:cornflowerblue;
 	
 }
 
 /*
 *{
   text-align:center;
-  border-color: blue;
+  border-color: cornflowerblue;
   background-color:white;
   margin:10px;
   border: 20px;
@@ -79,7 +84,7 @@ body{
 }
 
 h1,h2,h3{
-  text-decoration: blue;
+  text-decoration: cornflowerblue;
   font-size: large;
 }
 
