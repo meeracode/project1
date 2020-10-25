@@ -61,15 +61,22 @@
 	
 	<div class="  column1" >
 		
-		<p>   </p>
+	<form id="formobj" method=POST>  
+		<fieldset>
+		<label id ="datalvl" style="text-align:Right "> Text to search: </label>
+		<div style="border:2px solid width:2"> </div>
+		<input id="datatxt" type="text " > </input>
+		<input id="databtn" type="submit" Value="GetData"> </input>
+		</fieldset>
+	</form>
+		
 		
 	 </div>
 	 
 	 <div class=" column2" >
 	  
-	    
-	  
-	  <p> form data</p>
+	   <label> Data name:
+	    <p> form data</p>
 	  
 	 </div>
 	
@@ -136,26 +143,49 @@
 
 		var movie = "The Little Me";
  
-    var queryURL = "https://www.omdbapi.com/?t=" + "Hobbit" + "&apikey=trilogy";
+    var queryURL = "https://www.omdbapi.com/?t=";
 
+		
+	textData = $('.datatxt').val();
+	queryURL += "Hobbit" + "&apikey=trilogy";
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
 		console.log(response);	
 		
+		
+		
 		var displayData= "Title:  "+response.Title+"\n";
 		displayData+= "Year: "+response.Year +"\n";
 		displayData+=  "Year: "+response.Year +'\n';
+		
+		console.log(response);
+		for (var i =0; i < 10; i++){
+		
+			var imgs = $("<img/>",
+						{src:response.Poster,
+						 css: {borderWidth:6, width:100, height:100}
+						});
+			var ptag = $("<\p>",
+						{
+						  text:response.Title+response.Year
+						});
+						
 			
-		$('div.column1').text(JSON.stringify(response));
+			$('div.column1').append(imgs);
+			$('div.column1').append( ptag);
+			console.log("input data"+textData);
+		}
+	
+		
 		$('div.column2').text( displayData);
 		
 		history.pushState('',$this.text, '');
 		
     });
 
-
+    
 	 
 function fetchTranslation(){
   $.ajax(settings).done(function (response) {
@@ -176,7 +206,6 @@ function fetchTranslation(){
 <footer>
 
 </footer>
-
 
 
 
