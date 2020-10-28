@@ -1,23 +1,33 @@
+
+
 body{
   width:70%;
   margin:0 auto;
-  background-color:#white;  
+  background-color:transparent;  
   text-align:center;
-  border-color: blue;
+  background-image: url(bck.jpg)
 }
 
-#contents{ overflow: auto:}
+#contents{ overflow: auto;}
 
 #nav,#contents, #footer{
   margin:1%;
-  background-color:"cornflowerblue;
+  background-color:transparent;
+  background-image: url(art_canvas.jpg)
+  
+ }
+
+.column{
+	overflow: auto;
 }
+	
 .column1, .column2, .column3{
   width:31%;
   float:left;
   margin:.5%;
   background-color: cornflowerblue;
-  height:500px;
+  overflow: auto;
+  background-image: url(art_canvas.jpg)
 }
 
 
@@ -28,12 +38,12 @@ body{
 li{
   display:inline;
   padding:0.5em;
-  text-align=center;
+  text-align:center;
   margin-left:3%;
 }
 
 #nav, #footer{
-  background-color: cornflowerblue;
+ 
   padding: 0.5em 0;
   
 }
@@ -41,7 +51,7 @@ li{
 #contents, .article{
   height:11em;
   magin-bottom: 1em;
- background-color: cornflowerblue;
+ 
  
 }
 
@@ -53,7 +63,7 @@ h1 h3 h5{
 
 
 nav{
-  background-color: cornflowerblue;
+ 
   height:30px;
 }
 
@@ -61,7 +71,7 @@ nav{
 #content{
 	height:10em;
 	margin-bottom:1em;
-	background-color:cornflowerblue;
+
 	
 }
 
@@ -96,7 +106,7 @@ h1,h2,h3{
 .lines{
   height:0px;
   width:0px;
-  background-color: cornflowerblue;
+ 
   border: cornflowerblue;
 }
 

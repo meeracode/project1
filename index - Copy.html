@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+     <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+	 <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>  
+	
+    <link rel="stylesheet" href="style.css" />
+	<script src="geo-min.js" type="text/javascript" charset="utf-8"></script>
+	
+    <title>Project 1</title>
+	
+  
+	
+</head>
+
+<body>
+
+	<div id="headrer">
+	
+	<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Space project</h1>
+    <p class="lead">Space travel - a Celestial quest, eries of book about space, game, and technology and its influence on the possibility of life on space</p>
+  </div>
+</div>
+		
+		<div id="nav">
+			<nav>
+				<li > <a id="atagGame" href="game.html"> Game</a></li>
+				<li > <a id="translatea"  href="satellite.html">Satellites</a> </li>
+				<li > <a id="search"  href="books.html">Book Search </a> </li>
+				<li > <a id="clicktobuy" href="Tobuy.html">ClickToBuy</a> </li> 
+				<li > <a id="abouta"  href="about.html">  About</a> </li>
+			</nav>
+		</div>
+	</div>
+
+	<div id="contents"> 
+		<div id="data">
+			
+			<a href=""> https://www.amazon.com/dp/B08LVYR3C5</a>
+			<p> After the great shake, Ella and Mommy, Stella , 
+				explore life beyond the planet earth, tectonic plates  and its deleterious effects - 
+				Faced with the new challenge, the celestial quest , possibility of life on icy Zenith Transends the space, zoom with travel pods , complex data cloud formations,  
+				armed with  Wisely, Botsy, habitable conditions, makes Zenith an instant home </p>
+			</p>
+		</div>
+	</div>
+	
+	<div class="  column1" >
+		<div class="card" style="width: 18rem;">
+		<img src="..." class="card-img-top" alt="...">
+			<div class="card-body">
+			<h5 class="card-title">Card title</h5>
+			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			<a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		</div>
+	
+		<p> </p>
+		
+	 </div>
+	 
+	 <div class="column2" >
+		<div class="card" style="width: 18rem;">
+		<img src="" class="card-img-top" alt="...">
+		<div class="card-body">
+			<h5 class="card-title">Book Name: </h5>
+			<p class="card-text"> </p>
+			
+			<a href="#" class="btn btn-primary">Description:</a>
+			
+		</div>
+		</div>
+	    
+	  
+	  <p> form data</p>
+	  
+	 </div>
+	
+	<div class="column3" >
+		
+	 
+    </div>
+	
+	 <footer>
+	 <p>  </p>
+		
+	 </footer>
+	 
+</div>	
+
+
+
+<script>
+		msg = "geolocation notfound";
+		
+		
+		if(geo_position_js.init()){
+			geo_position_js.getCurrentPosition(success_callback,error_callback,{enableHighAccuracy:true});
+			
+		}
+		else{
+		
+			console.log("notloaded");
+		 }
+		function success_callback(p)
+		{
+			console.log("location coords", p.coords);
+			$('div.column2').text("longitude"+p.coords.longitude+"<br/>"+" longitude"+p.coords.latitude);
+		}
+		function error_callback(p)
+		{
+			console.log("location coords", p.message);
+			$('div.column2').text(p.message);
+		}
+
+		var movie = "The Little Me";
+ 
+    var queryURL = "https://www.omdbapi.com/?t=" + "Hobbit" + "&apikey=trilogy";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+		console.log(response);	
+		
+		var displayData= "Title:  "+response.Title+"\n";
+		displayData+= "Year: "+response.Year +"\n";
+		displayData+=  "Year: "+response.Year +'\n';
+			
+		$('div.column1').text(JSON.stringify(response));
+		$('div.column2').text( displayData);
+		
+		history.pushState('',$this.text, '');
+		
+    });
+
+
+	 
+function fetchTranslation(){
+  $.ajax(settings).done(function (response) {
+    console.log(JSON.stringify(response));
+    var translatedText = response.data.translations[0].translatedText;
+    updatePlaceholders(translatedText);
+  });  
+}
+
+
+</script>
+
+</div>
+
+</body>
+
+<footer>
+
+</footer>
+
+
+
+</html>
