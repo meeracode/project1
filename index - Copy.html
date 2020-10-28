@@ -80,12 +80,14 @@
 	 
 	 <div class="column2" >
 		<div class="card" style="width: 18rem;">
-		<img src="" class="card-img-top" alt="...">
+		<img src="..." class="card-img-top" alt="...">
 		<div class="card-body">
 			<h5 class="card-title">Book Name: </h5>
+			
 			<p class="card-text"> </p>
 			
 			<a href="#" class="btn btn-primary">Description:</a>
+			
 			
 		</div>
 		</div>
@@ -96,10 +98,22 @@
 	 </div>
 	
 	<div class="column3" >
-		
+		<div class="column2" >
+		<div class="card" style="width: 18rem;">
+		<img src="" class="card-img-top" alt="...">
+		<div class="card-body">
+			<h5 class="card-title">Book Name: </h5>
+			
+			<p class="card-text"> </p>
+			
+			<a href="#" class="btn btn-primary">Description:</a>
+			
+			
+		</div>
+		</div>
 	 
     </div>
-	
+	<div>
 	 <footer>
 	 <p>  </p>
 		
@@ -111,12 +125,12 @@
 
 <script>
 		msg = "geolocation notfound";
-		
-		
+			
 		if(geo_position_js.init()){
 			geo_position_js.getCurrentPosition(success_callback,error_callback,{enableHighAccuracy:true});
 			
 		}
+		
 		else{
 		
 			console.log("notloaded");
@@ -124,34 +138,97 @@
 		function success_callback(p)
 		{
 			console.log("location coords", p.coords);
-			$('div.column2').text("longitude"+p.coords.longitude+"<br/>"+" longitude"+p.coords.latitude);
+			
 		}
 		function error_callback(p)
 		{
 			console.log("location coords", p.message);
-			$('div.column2').text(p.message);
 		}
 
 		var movie = "The Little Me";
  
-    var queryURL = "https://www.omdbapi.com/?t=" + "Hobbit" + "&apikey=trilogy";
+		var queryURL = "https://www.omdbapi.com/?t=" + "Hobbit" + "&apikey=trilogy";
 
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-		console.log(response);	
-		
-		var displayData= "Title:  "+response.Title+"\n";
-		displayData+= "Year: "+response.Year +"\n";
-		displayData+=  "Year: "+response.Year +'\n';
+		$.ajax({
+		  url: queryURL,
+		  method: "GET"
+		}).then(function(response) {
+			console.log(response);	
 			
-		$('div.column1').text(JSON.stringify(response));
-		$('div.column2').text( displayData);
+			var displayData= "Title:  "+response.Title+"\n";
+			displayData+= "Year: "+response.Year +"\n";
+			displayData+=  "Year: "+response.Year +'\n';
+				
+			$('div.column1').text(JSON.stringify(response));
+			$('div.column1').text( displayData);
+			
+			history.pushState('',$this.text, '');
+			
+		});
 		
-		history.pushState('',$this.text, '');
 		
-    });
+		$('#databtn').on( "click",function() {
+				console.log($('#datatxt').val())
+				
+									
+			$.ajax({
+				url: queryURL,
+				method: "GET"
+				
+			}).then(function(response) {
+			
+			
+			console.log( response);	
+			if( respone.Response == "False"){
+				console.log("data not valid");
+			}
+			else{
+				console.log(queryURL);
+				
+				console($('form.div'));
+				console.log($('#datatxt').val());	
+				var displayData = "Title:  "+response.Title+"\n";
+				displayData    += "Year: "+response.Year +"\n";
+				displayData    +=  "Year: "+response.Year +'\n';
+			
+				for (var i =0; i < 11; i++){
+					var imgs = $("<img/>",{
+							 src:response.Poster,
+							 css: {borderWidth:6, width:100, height:100},
+							 click: function() {(response.Title);}
+						});
+						
+					var ptag = $("<\p>",{
+							  text:response.Title
+						});					
+						
+					$('div.column1').append( imgs );							
+					$('div.column1').append( ptag );
+				}					
+			}	
+			});
+		});	
+
+		queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
+		$.ajax({
+			url: queryURL,
+			method: "GET"
+			
+		}).then(function(response) {
+		console.log( response);	
+		$('div.column2').append( JSON.stringify(response ));							
+		});
+		
+		queryURL = "";
+		$.ajax({
+			url: queryURL,
+			method: "GET"
+			
+		}).then(function(response) {
+		console.log( response);	
+		$('div.column2').append( JSON.stringify(response ));							
+			
+		});
 
 
 	 
