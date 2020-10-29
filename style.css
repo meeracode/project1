@@ -5,29 +5,54 @@ body{
   margin:0 auto;
   background-color:transparent;  
   text-align:center;
-  background-image: url(bck.jpg)
+  font-family: "Arial, Helvetica, sans-serif";
+  font-size:10
+ 
 }
 
 #contents{ overflow: auto;}
 
+.navbars{
+	background-color:#00aaff;
+	border-style: solid 100em  500; 
+	
+}
+
+select {
+    font-size: .9rem;
+    padding: 2px 5px;
+}
+
 #nav,#contents, #footer{
   margin:1%;
-  background-color:transparent;
-  background-image: url(art_canvas.jpg)
+  background-color:tarnsparent;
+  
+  color:#fffff;
+  border-style: dotted 1em ; 
+  background-image: url(white.jpg)
   
  }
 
-.column{
-	overflow: auto;
-}
-	
+.container{
+	background-image:url(bck.jpg)
+}	
 .column1, .column2, .column3{
   width:31%;
   float:left;
   margin:.5%;
-  background-color: cornflowerblue;
+  background-color: transparent;
+  overflow: scroll;
   overflow: auto;
-  background-image: url(art_canvas.jpg)
+  color:#ffffff;
+  background-image: url(art_canvas.jpg);
+  
+  
+}
+li{
+  display:inline;
+  padding:0.5;
+  text-align:left;
+  margin-left:10%;
 }
 
 
@@ -35,12 +60,6 @@ body{
   transparent url(icon_skype.png) no-repeat top left;
 }
 
-li{
-  display:inline;
-  padding:0.5em;
-  text-align:center;
-  margin-left:3%;
-}
 
 #nav, #footer{
  
@@ -51,7 +70,6 @@ li{
 #contents, .article{
   height:11em;
   magin-bottom: 1em;
- 
  
 }
 
