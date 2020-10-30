@@ -99,9 +99,31 @@
 <script>
 		msg = "geolocation";
 
+		var queryURL = "https://www.omdbapi.com/?t=" + $('#datatxt').val() + "&apikey=trilogy";
 
-		var queryURL ="https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=R1a31F4tBjCUaM2ho8GtIFsrSdtXt30M&q=TEST";
+			console.log("fhlsdkjfhalsdkjfahdkjf" + $('#datatxt').val())
 
+			console.log($('#datatxt').val())
+
+			$.ajax({
+				url: queryURL,
+				method: "GET"
+
+			}).then(function (response) {
+
+				console.log(response);
+
+				console.log($('#datatxt').val());
+
+				for (var i = 0; i < 10; i++) {
+					dataTag1(response);
+				}
+			});
+
+		console.log(queryURL+$('#datatxt').val())
+		
+	
+		
 		console.log(queryURL+$('#datatxt').val())
 
 
@@ -129,7 +151,7 @@ if( false){
 			url: queryURL,
 			method: "GET"
 		}).then(function(response) {
-			console.log( "images / 2020 / 10 / 22 / sports / 21saban - new/21saban-new-popup.jpg");
+		
 
 
 		if(response.length <50){
@@ -190,14 +212,14 @@ if( false){
 		dataTag2(reponse);
 	}
 
-
+	
 function dataTag1( response){
 
 	for( var i =0 ; i < response.length; i++){
 		var imgs = $("<img/>",{
 			src: "cupcakes.png",
 			css: {borderWidth:6, width:100, height:100},
-	     	click: function() {console.lof("text");}
+	     	click: function() {											}
 		});
 		var ptag = $("<\p>",{
 				  text: response.web_url
@@ -207,7 +229,7 @@ function dataTag1( response){
 		$('div.column1').append( ptag );
 	}
 }
-
+	
 function dataTag2( reponse){
 
 		var imgs = $("<img/>",{
