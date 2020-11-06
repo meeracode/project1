@@ -66,10 +66,7 @@
 
 	<div id="contents">
 		<div id="data">
-			<p> Please buy books <p>
-			<p> My book about space  </p>
-				<a href=""> </a>
-				<p>A specialized studies  </p>
+     <p> gymp and omidb database query  </p>
 		</div>
 	</div>
 
@@ -115,16 +112,9 @@
 
 		console.log("location coords", $('input:submit'));
 
-    // queryURL += $('text#databtn').val() + "&apikey=trilogy";
 
-		// queryURL += "Hobbit" + "&apikey=trilogy";
-
-
-
-
-
-		$('#databtn').on( "click",function() {
-			console.log($('#datatxt').val())
+		// $('#databtn').on( "click",function() {
+		// 	console.log($('#datatxt').val())
 
 
 		$.ajax({
@@ -132,39 +122,31 @@
 			method: "GET"
 
 		}).then(function(response) {
+			console.log( response);
 
-
-		console.log( response);
-		if( respone.Response == "False"){
-			console.log("data not valid");
-		}
-		else{
-			console.log(queryURL);
-
-			console($('form.div'));
 			console.log($('#datatxt').val());
+
 			var displayData = "Title:  "+response.Title+"\n";
 			displayData    += "Year: "+response.Year +"\n";
 			displayData    +=  "Year: "+response.Year +'\n';
+			console.log( "DATATAADSADASDASDA"+displayData);
 
 			for (var i =0; i < 11; i++){
 				var imgs = $("<img/>",{
 						 src:response.Poster,
 						 css: {borderWidth:6, width:100, height:100},
-						 click: function() {(response.Title);}
-					});
 
+					});
 				var ptag = $("<\p>",{
 						  text:response.Title
 					});
 
 				$('div.column1').append( imgs );
-
-				$('div.column1').append( ptag );
+			  $('div.column1').append( ptag );
 			}
-		}
-		});
 	});
+
+
 
 		queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
 		$.ajax({
