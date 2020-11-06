@@ -21,7 +21,7 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
 	<script src="geo-min.js" type="text/javascript" charset="utf-8"></script>
 
     <title>Project 1</title>
@@ -64,12 +64,15 @@
 		</div>
 	</div>
 
+
 	<div id="contents">
 		<div id="data">
-     <p> gymp and omidb database query  </p>
+     <p> giphy and omidb database query  works for a static word Hobbit and populates data from giffy </p>
 		</div>
 	</div>
 
+	<div class="row">
+		<div class="col-sm-3" style="background-color:#efefef">
 
 	<div class="column1">
 		<form id="formobj" method="POST">
@@ -80,27 +83,29 @@
 		</form>
 	</div>
 
+	 </div>
+
+		<div class="col-sm-3 " style="background-color:#efefef; ">
 	<div class="column2">
 		<p> A specialized studies   </p>
 	</div>
-
+	</div>
+	<div class="col-sm-6" style="background-color:#efefef">
 	<div class="column3">
 		<p> A specialized studies </p>
 	</div>
+	</div>
+	</div>
 
-
-	<div class="cl">
+	<!-- <div class="cl">
 		<fieldset>
 
 		</fieldset>
-	</div>
+	</div> -->
 
 
-	<footer>
-	 <p>  </p>
-	</footer>
 
-</div>
+
 
 
 <script>
@@ -114,7 +119,7 @@
 
 
 		// $('#databtn').on( "click",function() {
-		// 	console.log($('#datatxt').val())
+			// console.log($('#datatxt').val())
 
 
 		$.ajax({
@@ -129,7 +134,7 @@
 			var displayData = "Title:  "+response.Title+"\n";
 			displayData    += "Year: "+response.Year +"\n";
 			displayData    +=  "Year: "+response.Year +'\n';
-			console.log( "DATATAADSADASDASDA"+displayData);
+			console.log(+displayData);
 
 			for (var i =0; i < 11; i++){
 				var imgs = $("<img/>",{
@@ -156,22 +161,22 @@
 		}).then(function(response) {
 		console.log( response);
 		$('div.column2').append( JSON.stringify(response ));
-
+			$('div.column3').append(JSON.stringify(response));
 		});
 
-		queryURL = "";
-		$.ajax({
-			url: queryURL,
-			method: "GET"
+		// queryURL = "";
+		// $.ajax({
+		// 	url: queryURL,
+		// 	method: "GET"
 
-		}).then(function(response) {
-		console.log( response);
+		// }).then(function(response) {
+		// console.log( response);
 
-		$('div.column2').append( JSON.stringify(response ));
+		// $('div.column2').append( JSON.stringify(response ));
 
 		// $('div.column3').append( JSON.stringify(response ));
 
-		});
+		// });
 
 
 
@@ -192,7 +197,7 @@ function fetchTranslation(){
 
 </script>
 
-</div>
+
 
 </body>
 
